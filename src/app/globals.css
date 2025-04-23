@@ -9,56 +9,56 @@
     --line-height-body: 1.625;
     --tracking-heading-tight: -0.03em;
 
-    /* Brand Colors in HSL */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Portfolio Colors: Red, White, Black */
+    --background: 0 0% 0%;          /* Black */
+    --foreground: 0 0% 100%;        /* White */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;              /* White cards */
+    --card-foreground: 0 0% 0%;     /* Black text on cards */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 10%;            /* Slightly off-black */
+    --popover-foreground: 0 0% 100%;/* White */
 
-    --primary: 201 96% 32%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 84% 60%;           /* Red */
+    --primary-foreground: 0 0% 100%;/* White text on red */
 
-    --secondary: 142 72% 29%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 84% 60%;         /* Red as secondary */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 15%;              /* Dark muted */
+    --muted-foreground: 0 0% 80%;   /* Light muted text */
 
-    --accent: 270 95% 75%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 84% 60%;            /* Red as accent */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60.2%;     /* Red destructive */
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 201 96% 32%;
+    --border: 0 0% 100%;            /* White borders */
+    --input: 0 0% 15%;              /* Dark input */
+    --ring: 0 84% 60%;              /* Red ring */
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 0%;          /* Black */
+    --foreground: 0 0% 100%;        /* White */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 10%;               /* Near-black cards */
+    --card-foreground: 0 0% 100%;   /* White text on cards */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 10%;            /* Off-black */
+    --popover-foreground: 0 0% 100%;/* White */
 
-    --primary: 201 96% 32%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 0 84% 60%;           /* Red */
+    --primary-foreground: 0 0% 100%;/* White text on red */
 
-    --secondary: 142 72% 29%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 84% 60%;         /* Red as secondary */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 15%;              /* Dark muted */
+    --muted-foreground: 0 0% 80%;   /* Light muted text */
 
     --accent: 270 95% 75%;
     --accent-foreground: 210 40% 98%;
@@ -69,6 +69,62 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 201 96% 32%;
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 10px;
+    background: #111;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ef4444;
+  }
+
+  /* Smoother transitions for UI elements */
+  a, button, input, textarea, .card, .shadow, .hover\:shadow-lg, .hover\:shadow {
+    transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* Card and button shadow for depth */
+  .card, .bg-white, .bg-card {
+    @apply shadow-lg hover:shadow-xl;
+  }
+  button, .btn, .Button {
+    @apply shadow;
+    transition: none;
+  }
+
+  /* Link styles */
+  a {
+    @apply text-white no-underline;
+    transition: none;
+  }
+
+  /* Input styles */
+  input, textarea {
+    @apply bg-black text-white border border-white rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500;
+  }
+
+  /* Refined spacing for sections */
+  section {
+    @apply py-12 md:py-20;
+  }
+
+  /* Subtle hover effect for cards */
+  .card, .bg-white, .bg-card {
+    @apply hover:scale-[1.025] hover:border-primary-500;
+  }
+
+  /* Accessibility: focus outlines */
+  *:focus-visible, *:focus {
+    outline: none !important;
+    outline-offset: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
   }
 
   * {

@@ -3,77 +3,168 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      <main className="container mx-auto space-y-16 pt-20 px-4">
-        {/* Hero Section - Using brand colors for psychological impact */}
-        <div className="text-center space-y-6 max-w-[800px] mx-auto">
-          <h1 className="font-mono tracking-tighter text-gradient-brand">
-            Anthony Quispilaya
-          </h1>
-          <p className="text-lg text-medium-contrast max-w-2xl mx-auto">
-            Aspiring web developer.
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Subtle background pattern overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-10" style={{background: "radial-gradient(circle at 50% 30%, #ef4444 0%, transparent 60%)"}} />
+      <main className="relative w-full space-y-20 pt-24 px-8 md:px-16 z-10">
+        {/* Hero Section */}
+        <section className="text-center space-y-8 w-full px-0 animate-fade-in-up">
+          <h1
+  className="font-mono tracking-tighter text-6xl md:text-7xl mb-6 inline-block px-12 py-6 rounded-full text-white shadow-2xl border-8 animate-glow"
+  style={{
+    background: 'linear-gradient(0deg, rgba(117, 0, 0, 0.81) 0%, rgba(0, 0, 0, 0.73) 100%)',
+    boxShadow: '0 8px 48px 0 rgba(0,0,0,0.10)',
+    border: '8px solid rgba(244, 244, 244, 0.31)'
+  }}
+>
+  Anthony Quispilaya
+</h1>
+          <p className="text-xl text-white w-full text-center font-light animate-fade-in-delay">
+            Aspiring web developer passionate about building modern, user-centered web applications. Welcome to my portfolio!
           </p>
-          <div className="flex gap-4 justify-center pt-4">
-            <Button size="lg" className="text-base bg-gradient-brand hover:opacity-90">
-              Start Your Revolution
+          <div className="flex gap-4 justify-center pt-4 animate-fade-in-delay-2">
+            <Button size="lg" className="text-base bg-primary-600 text-white font-semibold shadow-lg hover:bg-primary-700 focus:ring-2 focus:ring-primary-400 focus:ring-offset-2" asChild>
+              <a href="/projects">View My Projects</a>
             </Button>
-            <Button variant="outline" size="lg" className="text-base border-primary-600 text-primary-700 hover:bg-primary-50">
-              View Case Studies
+            <Button variant="outline" size="lg" className="text-base border-white text-white hover:bg-primary-600 hover:text-white font-semibold focus:ring-2 focus:ring-primary-400 focus:ring-offset-2" asChild>
+              <a href="/contact">Contact Me</a>
             </Button>
           </div>
-        </div>
+        </section>
 
-        {/* Core Principles Section - Using color psychology for impact */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-8">
-          <Card className="border-l-4 border-l-primary-500">
-            <CardHeader>
-              <CardTitle className="font-mono tracking-tight text-primary-700">Radical Honesty</CardTitle>
-              <CardDescription>Unfiltered insights that drive real change</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-medium-contrast">
-                We deliver uncomfortable truths that conventional consultants won't touch. Because real transformation starts with radical honesty.
-              </p>
-            </CardContent>
-          </Card>
+        {/* Skills Section */}
+        <section className="py-8 w-full max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6 text-center">Skills</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full">
+            {/* JavaScript */}
+            <div className="flex flex-col items-center text-center ">
+              <span className="font-semibold text-2xl text-white flex flex-col items-center">
+                <img src="/javascript.svg" alt="JavaScript" className="w-24 h-24 mb-4 rounded-md" />
+                JavaScript
+              </span>
+            </div>
+            {/* TypeScript */}
+            <div className="flex flex-col items-center text-center ">
+              <span className="font-semibold text-2xl text-white flex flex-col items-center">
+                <img src="/typescript.svg" alt="TypeScript" className="w-24 h-24 mb-4 rounded-md" />
+                TypeScript
+              </span>
+            </div>
+            {/* React */}
+            <div className="flex flex-col items-center text-center ">
+              <span className="font-semibold text-2xl text-white flex flex-col items-center">
+                <img src="/react.svg" alt="React" className="w-24 h-24 mb-4 rounded-md" />
+                React
+              </span>
+            </div>
+            {/* Next.js */}
+            <div className="flex flex-col items-center text-center ">
+              <span className="font-semibold text-2xl text-white flex flex-col items-center">
+                <img src="/nextround.svg" alt="Next.js" className="w-24 h-24 mb-4" />
+                Next.js
+              </span>
+            </div>
+            {/* Tailwind CSS */}
+            <div className="flex flex-col items-center text-center ">
+              <span className="font-semibold text-2xl text-white flex flex-col items-center">
+                <img src="/tailwind.svg" alt="Tailwind CSS" className="w-24 h-24 mb-4" />
+                Tailwind CSS
+              </span>
+            </div>
 
-          <Card className="border-l-4 border-l-secondary-500">
-            <CardHeader>
-              <CardTitle className="font-mono tracking-tight text-secondary-700">Disruptive Innovation</CardTitle>
-              <CardDescription>Beyond optimization to revolution</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-medium-contrast">
-                We don't just improve your AI systems—we completely reimagine them. Creating market shifts, not incremental gains.
-              </p>
-            </CardContent>
-          </Card>
+          </div>
+        </section>
 
-          <Card className="border-l-4 border-l-accent-500">
-            <CardHeader>
-              <CardTitle className="font-mono tracking-tight text-accent-700">Evidence-Based Rebellion</CardTitle>
-              <CardDescription>Data-driven disruption that works</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-medium-contrast">
-                Our revolutionary approaches are backed by solid data and psychological research. We're rebels with results.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
+        {/* AI Tools Section */}
+        <section className="py-8 w-full max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6 text-center">AI Tools</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full">
+            {/* OpenAI */}
+            <div className="flex flex-col items-center text-center ">
+              <span className="font-semibold text-2xl text-white flex flex-col items-center">
+                <img src="/openai.png" alt="OpenAI" className="w-24 h-24 mb-4 rounded-md" />
+                OpenAI
+              </span>
+            </div>
+            {/* Claude */}
+            <div className="flex flex-col items-center text-center ">
+              <span className="font-semibold text-2xl text-white flex flex-col items-center">
+                <img src="/claude.svg" alt="Claude" className="w-24 h-24 mb-4 rounded-md" />
+                Claude
+              </span>
+            </div>
+            {/* Windsurf */}
+            <div className="flex flex-col items-center text-center ">
+              <span className="font-semibold text-2xl text-white flex flex-col items-center">
+                <img src="/windsurf.svg" alt="Windsurf" className="w-24 h-24 mb-4 rounded-md" />
+                Windsurf
+              </span>
+            </div>
+            {/* Add more AI tools here if desired */}
+          </div>
+        </section>
 
-        {/* Call to Revolution Section - Using gradient for visual impact */}
-        <div className="text-center space-y-8 py-16">
-          <h2 className="font-mono tracking-tighter text-gradient-brand max-w-3xl mx-auto">
-            Ready to Break Free from AI Conformity?
-          </h2>
-          <p className="text-lg text-medium-contrast max-w-2xl mx-auto">
-            Join the ranks of Fortune 100 companies who've dared to challenge the established order and revolutionize their industries.
-          </p>
-          <Button size="lg" className="text-base bg-gradient-innovation hover:opacity-90">
-            Schedule Your Strategy Session
-          </Button>
-        </div>
+        {/* Featured Projects Section */}
+        <section className="py-8">
+          <h2 className="text-3xl font-bold mb-6 text-center">Featured Projects</h2>
+          <div className="flex flex-col gap-8 w-full max-w-[75vw] mx-auto">
+            <Card className="border-2 border-primary-600 rounded-2xl shadow-xl hover:scale-[1.02] hover:shadow-2xl transition group overflow-hidden bg-card">
+              <CardHeader>
+                <CardTitle className="font-mono tracking-tight text-primary-600 group-hover:text-primary-500">Data Visualization</CardTitle>
+                <CardDescription className="text-black">Personal portfolio built with Next.js & Tailwind CSS</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="w-full rounded-lg overflow-hidden border border-primary-500 bg-black mb-4" style={{minHeight:'400px'}}>
+                  <iframe
+                    src="https://data-visualization-ajq.vercel.app/"
+                    title="Live Data Visualization App"
+                    className="w-full h-[400px] md:h-[600px] border-none rounded-lg"
+                    allowFullScreen
+                  />
+                </div>
+                <p className="text-medium-contrast mb-2 text-black">
+                  This very site! Designed to showcase my skills, projects, and experience as a web developer.
+                </p>
+                <a href="/projects" className="inline-block mt-2 px-4 py-2 rounded bg-primary-600 text-white font-semibold shadow hover:bg-primary-700 transition">View Projects</a>
+              </CardContent>
+            </Card>
+            <Card className="border-2 border-primary-600 rounded-2xl shadow-xl hover:scale-[1.02] hover:shadow-2xl transition group overflow-hidden bg-card">
+              <div className="h-40 w-full bg-gradient-to-br from-primary-700 to-black flex items-center justify-center">
+                <span className="text-white text-4xl font-bold opacity-60">IMG</span>
+              </div>
+              <CardHeader>
+                <CardTitle className="font-mono tracking-tight text-primary-600 group-hover:text-primary-500">AI Q/A</CardTitle>
+                <CardDescription className="text-black">A modern e-commerce demo app with product listings, cart, and checkout flow.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-medium-contrast mb-2 text-black">
+                  Built with React, Next.js, and Stripe integration. Focused on performance and user experience.
+                </p>
+                <a href="/projects" className="inline-block mt-2 px-4 py-2 rounded bg-primary-600 text-white font-semibold shadow hover:bg-primary-700 transition">View Projects</a>
+              </CardContent>
+            </Card>
+            <Card className="border-2 border-primary-600 rounded-2xl shadow-xl hover:scale-[1.02] hover:shadow-2xl transition group overflow-hidden bg-card">
+              <div className="w-full rounded-lg overflow-hidden border border-primary-500 bg-black mb-4" style={{minHeight:'400px'}}>
+                <iframe
+                  src="https://anthony-quispilaya-is-117-003-project.vercel.app/"
+                  title="Live Static Website Project"
+                  className="w-full h-[400px] md:h-[600px] border-none rounded-lg"
+                  allowFullScreen
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="font-mono tracking-tight text-primary-600 group-hover:text-primary-500">Static Website</CardTitle>
+                <CardDescription className="text-black">A full-featured blog platform with markdown support and comments.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-medium-contrast mb-2 text-black">
+                  Features user authentication, post creation, and responsive design using Next.js and Tailwind CSS.
+                </p>
+                <a href="/projects" className="inline-block mt-2 px-4 py-2 rounded bg-primary-600 text-white font-semibold shadow hover:bg-primary-700 transition">View Projects</a>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
       </main>
     </div>
   );

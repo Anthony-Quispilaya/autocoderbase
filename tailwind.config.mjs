@@ -15,45 +15,39 @@ export default {
         heading: ['var(--font-mono)', 'monospace'],
       },
       colors: {
-        // Core Brand Colors
+        // Portfolio Color Scheme: Red, White, Black
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-          950: '#082f49',
+          50: '#fff1f2',
+          100: '#ffe4e6',
+          200: '#fecdd3',
+          300: '#fda4af',
+          400: '#fb7185',
+          500: '#ef4444', // main red
+          600: '#dc2626',
+          700: '#b91c1c',
+          800: '#991b1b',
+          900: '#7f1d1d',
         },
-        secondary: {
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#4ade80',
-          500: '#22c55e',
-          600: '#16a34a',
-          700: '#15803d',
-          800: '#166534',
-          900: '#14532d',
-          950: '#052e16',
+        background: '#000000', // black
+        card: '#ffffff', // white
+        foreground: '#ffffff', // white text default
+        accent: '#ef4444', // use red as accent
+        border: '#ffffff', // white borders
+        // semantic
+        success: {
+          light: '#f0fdf4',
+          DEFAULT: '#22c55e',
+          dark: '#15803d',
         },
-        accent: {
-          50: '#faf5ff',
-          100: '#f3e8ff',
-          200: '#e9d5ff',
-          300: '#d8b4fe',
-          400: '#c084fc',
-          500: '#a855f7',
-          600: '#9333ea',
-          700: '#7e22ce',
-          800: '#6b21a8',
-          900: '#581c87',
-          950: '#3b0764',
+        error: {
+          light: '#fee2e2',
+          DEFAULT: '#ef4444',
+          dark: '#b91c1c',
+        },
+        warning: {
+          light: '#fef3c7',
+          DEFAULT: '#f59e0b',
+          dark: '#b45309',
         },
         neutral: {
           50: '#f9fafb',

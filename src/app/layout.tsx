@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { IBM_Plex_Mono, Inter } from "next/font/google";
+import { MainNav } from "@/components/main-nav";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,12 +18,12 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Outlaw AI Consultancy",
-    template: "%s | Outlaw AI Consultancy",
+    default: "Anthony Quispilaya | Portfolio",
+    template: "%s | Anthony Quispilaya",
   },
-  description: "Challenging the AI status quo with radical honesty and evidence-based disruption",
-  authors: [{ name: "Outlaw AI Consultancy" }],
-  keywords: ["AI consultancy", "digital transformation", "disruptive innovation"],
+  description: "Personal portfolio of Anthony Quispilaya, aspiring web developer.",
+  authors: [{ name: "Anthony Quispilaya" }],
+  keywords: ["portfolio", "web developer", "Anthony Quispilaya", "projects", "about"],
 };
 
 export const viewport: Viewport = {
@@ -42,7 +43,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${ibmPlexMono.variable} font-sans antialiased`}>
-        {children}
+        <MainNav />
+        <main>{children}</main>
       </body>
     </html>
   );
