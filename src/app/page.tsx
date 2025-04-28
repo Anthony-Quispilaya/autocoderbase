@@ -5,16 +5,35 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Subtle background pattern overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-10" style={{background: "radial-gradient(circle at 50% 30%, #ef4444 0%, transparent 60%)"}} />
+      <div
+  className="fixed inset-0 z-0 opacity-30"
+  style={{
+    background: "radial-gradient(ellipse 80% 60% at 50% 0%,rgb(85, 0, 0) 0%,rgb(19, 6, 6) 100%)",
+    pointerEvents: "none"
+  }}
+/>
+{/* Red dots SVG pattern overlay */}
+<div
+  className="fixed inset-0 z-0 opacity-10 pointer-events-none"
+  aria-hidden="true"
+  style={{
+    backgroundImage: `url('data:image/svg+xml;utf8,<svg width="50" height="50" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="1.5" fill="%23ff2d2d"/></svg>')`,
+    backgroundRepeat: 'repeat',
+    backgroundSize: '20px 20px',
+    pointerEvents: 'none',
+    zIndex: 0
+  }}
+/>
+
       <main className="relative w-full space-y-20 pt-24 px-8 md:px-16 z-10">
         {/* Hero Section */}
         <section className="text-center space-y-8 w-full px-0 animate-fade-in-up">
           <h1
   className="font-mono tracking-tighter text-6xl md:text-7xl mb-6 inline-block px-12 py-6 rounded-full text-white shadow-2xl border-8 animate-glow"
   style={{
-    background: 'linear-gradient(0deg, rgba(117, 0, 0, 0.81) 0%, rgba(0, 0, 0, 0.73) 100%)',
+    background: 'linear-gradient(0deg, rgba(87, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.78) 100%)',
     boxShadow: '0 8px 48px 0 rgba(0,0,0,0.10)',
-    border: '8px solid rgba(244, 244, 244, 0.31)'
+    border: '4px solid rgba(255, 255, 255, 0.2)'
   }}
 >
   Anthony Quispilaya

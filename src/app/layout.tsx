@@ -35,6 +35,8 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+import { useEffect } from "react";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -42,9 +44,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${ibmPlexMono.variable} font-sans antialiased`}>
+      <body id="__body" className={`${inter.variable} ${ibmPlexMono.variable} font-sans antialiased`}>
         <MainNav />
         <main>{children}</main>
+        {/* Day/Night mode sync script */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              function updateBodyClass() {
+                var mode = window.__DAYNIGHT_MODE__;
+                var body = document.getElementById('__body');
+                if (!body) return;
+                if (mode === 'day') {
+                  body.classList.add('day');
+                } else {
+                  body.classList.remove('day');
+                }
+              }
+              window.__setDayNightMode = function(mode) {
+                window.__DAYNIGHT_MODE__ = mode;
+                updateBodyClass();
+              };
+              window.__DAYNIGHT_MODE__ = 'night';
+              updateBodyClass();
+            })();
+          `
+        }} />
       </body>
     </html>
   );
