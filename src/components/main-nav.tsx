@@ -19,6 +19,7 @@ export function MainNav() {
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
     { href: "/projects", label: "Projects" },
+    { href: "/resume", label: "Resume" },
   ];
 
   return (
