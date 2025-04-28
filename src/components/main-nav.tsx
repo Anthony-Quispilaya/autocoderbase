@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function MainNav() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false)
   
   const routes = [
@@ -25,24 +27,30 @@ export function MainNav() {
       style={{ position: 'sticky', zIndex: 100 }}
     >
       <div
-        className="flex items-center gap-6 rounded-full px-8 py-3 shadow-2xl backdrop-blur-xl border-2 border-white/40"
+        className="flex items-center gap-3 rounded-full px-4 py-2 shadow-2xl backdrop-blur-xl border border-white/30"
         style={{
-          background: 'linear-gradient(0deg, rgba(117, 0, 0, 0.59) 0%, rgba(0, 0, 0, 0.64) 100%)',
+          background: 'rgba(29, 0, 0, 0.57)',
           boxShadow: '0 8px 48px 0 rgba(0,0,0,0.10)',
         }}
       >
         {/* Desktop Navigation + Social Icons */}
-        <div className="hidden md:flex items-center gap-6">
-          {routes.map((route) => (
-            <Link
-              key={route.href}
-              href={route.href}
-              className="group relative text-2xl font-semibold text-white px-10 py-4 overflow-visible border-2 border-transparent rounded-full hover:border-white/40 transform-gpu transition-transform duration-150 hover:scale-125 origin-center"
-              style={{ zIndex: 1 }}
-            >
-              <span className="relative z-10">{route.label}</span>
-            </Link>
-          ))}
+        <div className="hidden md:flex items-center gap-3">
+          {routes.map((route) => {
+            const isActive = pathname === route.href || (route.href !== "/" && pathname.startsWith(route.href));
+            return (
+              <Link
+                key={route.href}
+                href={route.href}
+                className={`group relative text-lg font-semibold text-white px-4 py-2 overflow-visible border rounded-full transform-gpu transition-transform duration-150 origin-center bg-transparent transition-colors duration-150 
+                  ${isActive ? 'border-white/30 scale-110 bg-[rgba(255,255,255,0.05)]' : 'border-transparent hover:border-white/30 hover:scale-110'}
+                `}
+                style={{ zIndex: 1 }}
+              >
+                <span className={`pointer-events-none absolute inset-0 rounded-full transition-all duration-150 z-0 ${isActive ? 'opacity-100 bg-[rgba(255,255,255,0.05)]' : 'opacity-0 group-hover:opacity-100 group-hover:bg-[rgba(255,255,255,0.05)]'}`} />
+                <span className="relative z-10">{route.label}</span>
+              </Link>
+            );
+          })}
 
           {/* LinkedIn Icon */}
           <a
@@ -50,20 +58,22 @@ export function MainNav() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="group relative px-10 py-4 overflow-visible border-2 border-transparent rounded-full hover:border-white/40 transform-gpu transition-transform duration-150 hover:scale-125 origin-center"
+            className={"group relative text-lg font-semibold text-white px-4 py-2 overflow-visible border border-transparent rounded-full hover:border-white/30 transform-gpu transition-transform duration-150 hover:scale-110 origin-center bg-transparent transition-colors duration-150"}
             style={{ zIndex: 1 }}
           >
-            <span className="relative z-10"><img src="/linkedin.svg" alt="LinkedIn" width={120} height={50} className="inline-block align-middle m-0 p-0" /></span>
+            <span className="pointer-events-none absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 group-hover:bg-[rgba(255,255,255,0.05)] transition-all duration-150 z-0" />
+            <span className="relative z-10"><img src="/linkedin.svg" alt="LinkedIn" width={80} height={32} className="inline-block align-middle m-0 p-0" /></span>
             <span className="pointer-events-none absolute inset-0 rounded-full opacity-0 group-hover:bg-black/35 group-hover:backdrop-blur-sm transition-all duration-200 z-0" style={{filter: 'blur(2px)', margin: 4}} />
           </a>
           {/* Email Icon */}
           <a
             href="mailto:anthonyquispilaya@gmail.com" // TODO: Replace with actual email
             aria-label="Email"
-            className="group relative px-10 py-4 overflow-visible border-2 border-transparent rounded-full hover:border-white/40 transform-gpu transition-transform duration-150 hover:scale-125 origin-center"
+            className={"group relative text-lg font-semibold text-white px-4 py-2 overflow-visible border border-transparent rounded-full hover:border-white/30 transform-gpu transition-transform duration-150 hover:scale-110 origin-center bg-transparent transition-colors duration-150"}
             style={{ zIndex: 1 }}
           >
-            <span className="relative z-10"><img src="/mail.svg" alt="Email" width={38} height={38} className="inline-block align-middle" /></span>
+            <span className="pointer-events-none absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 group-hover:bg-[rgba(255,255,255,0.05)] transition-all duration-150 z-0" />
+            <span className="relative z-10"><img src="/mail.svg" alt="Email" width={28} height={28} className="inline-block align-middle" /></span>
             <span className="pointer-events-none absolute inset-0 rounded-full opacity-0 group-hover:bg-black/35 group-hover:backdrop-blur-sm transition-all duration-200 z-0" style={{filter: 'blur(2px)', margin: 4}} />
           </a>
         </div>
